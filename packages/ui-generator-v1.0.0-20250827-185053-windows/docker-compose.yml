@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  ui-generator:
+    image: nginx:alpine
+    ports:
+      - "3000:80"
+    volumes:
+      - ./dist:/usr/share/nginx/html:ro
+    restart: unless-stopped
+    
+  # 或者使用Go服务器
+  # ui-generator-go:
+  #   build: .
+  #   ports:
+  #     - "3000:3000"
+  #   restart: unless-stopped
